@@ -10,26 +10,71 @@ CREATE TABLE usuarios
 
 CREATE TABLE avaliacoes
 (
-    id           SERIAL PRIMARY KEY,
-    mensagem     TEXT    NOT NULL,
-    nota         INT CHECK (nota >= 1 AND nota <= 5),
-    data         TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    avaliadorID INT NOT NULL,
-    avaliadoID  INT NOT NULL,
-    FOREIGN KEY (avaliadorID) REFERENCES usuarios (id),
-    FOREIGN KEY (avaliadoID) REFERENCES usuarios (id)
+    id           SERIAL PRIMARY KEY, -- ID único e auto-incremental para cada avaliação
+    mensagem     TEXT    NOT NULL, -- Mensagem da avaliação, não nula
+    nota         INT CHECK (nota >= 1 AND nota <= 5), -- Nota da avaliação, entre 1 e 5
+    data         TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- Data e hora da avaliação, padrão é o momento atual
+    avaliadorID INT NOT NULL, -- ID do usuário que fez a avaliação, não nulo
+    avaliadoID  INT NOT NULL, -- ID do usuário que foi avaliado, não nulo
+    FOREIGN KEY (avaliadorID) REFERENCES usuarios (id), -- Chave estrangeira para a tabela de usuários
+    FOREIGN KEY (avaliadoID) REFERENCES usuarios (id) -- Chave estrangeira para a tabela de usuários
 );
 
 CREATE TABLE motoristas
 (
-    id      INT PRIMARY KEY REFERENCES usuarios (id),
-    quantidadeCaronas INT NOT NULL
+    id      INT PRIMARY KEY REFERENCES usuarios (id), -- ID do usuário, chave primária e estrangeira
+    quantidadeCaronas INT NOT NULL -- Quantidade de caronas dadas pelo motorista, não nula
 
 );
 
 CREATE TABLE passageiros
 (
-    id INT PRIMARY KEY REFERENCES usuarios (id),
-    localizacaoAtual VARCHAR(100) NOT NULL
+    id INT PRIMARY KEY REFERENCES usuarios (id), -- ID do usuário, chave primária e estrangeira
+    localizacaoAtual VARCHAR(100) NOT NULL -- Localização atual do passageiro, não nula
 );
+
+CREATE TABLE carros
+(
+                       placa VARCHAR(8) PRIMARY KEY, -- Placa do carro, chave primária (exemplo: ABC-1D23
+                       modelo VARCHAR(20) NOT NULL, -- Modelo do carro, não nulo
+                       marca VARCHAR(20) NOT NULL, -- Marca do carro, não nulo
+                       ano INT CHECK (ano >= 1900 AND ano <= EXTRACT(YEAR FROM CURRENT_DATE)), -- Ano do carro, entre 1900 e o ano atual
+                       motoristaID INT NOT NULL, -- ID do motorista dono do carro, não nulo
+                       FOREIGN KEY (motoristaID) REFERENCES motoristas(id) -- Chave estrangeira para a tabela de motoristas
+);
+
+/*
+CREATE TABLE caronas
+(
+    id           SERIAL PRIMARY KEY, -- ID único e auto-incremental para cada carona
+    origem       VARCHAR(100) NOT NULL, -- Local de origem da carona, não nulo
+    destino      VARCHAR(100) NOT NULL, -- Local de destino da carona, não nulo
+    data         TIMESTAMP NOT NULL, -- Data e hora da carona, não nulo
+    reservaAutomatica BOOLEAN NOT NULL, -- Indica se a reserva é automática, não nulo
+    assentosLivres        INT NOT NULL, -- Quantidade de assentos livres na carona, não nulo
+    motoristaID  INT NOT NULL, -- ID do motorista que oferece a carona, não nulo
+    FOREIGN KEY (motoristaID) REFERENCES motoristas (id) -- Chave estrangeira para a tabela de motoristas
+);
+ */
+
+CREATE TABLE rotas
+(
+    id        SERIAL PRIMARY KEY, -- ID único e auto-incremental para cada rota
+    origem    VARCHAR(100) NOT NULL, -- Local de origem da rota, não nulo
+    destino   VARCHAR(100) NOT NULL, -- Local de destino da rota, não nulo
+    distancia INT          NOT NULL -- Distância entre a origem e o destino, não nulo
+);
+
+CREATE TABLE viagens
+(
+    id      SERIAL PRIMARY KEY,    -- ID único e auto-incremental para cada viagem
+    preco   INT          NOT NULL, -- Preço da viagem, não nulo
+    data    TIMESTAMP    NOT NULL, -- Data e hora da viagem, não nulo
+    horaSaida TIMESTAMP NOT NULL, -- Hora de saída da viagem, não nulo
+    horaChegada TIMESTAMP NOT NULL, -- Hora de chegada da viagem, não nulo
+    rotasID INT NOT NULL, -- ID da rota da viagem, não nulo
+    FOREIGN KEY (rotasID) REFERENCES rotas (id) -- Chave estrangeira para a tabela de rotas
+);
+
+
 

@@ -3,7 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.52">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <IntrospectionStateNumber>977</IntrospectionStateNumber>
+      <IntrospectionStateNumber>998</IntrospectionStateNumber>
       <ServerVersion>14.12</ServerVersion>
       <StartupTime>1723655330</StartupTime>
       <TimeZones>true ACDT
@@ -1400,7 +1400,7 @@ true posixrules
 13393||10|C|G
 13393||-9223372036854775808|U|G
 13393||10|U|G</Grants>
-      <IntrospectionStateNumber>977</IntrospectionStateNumber>
+      <IntrospectionStateNumber>998</IntrospectionStateNumber>
       <ObjectId>16384</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
@@ -4841,8 +4841,8 @@ true posixrules
     <schema id="262" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>977</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2024-08-14.22:18:43</LastIntrospectionLocalTimestamp>
+      <IntrospectionStateNumber>998</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2024-08-15.00:10:40</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>526</StateNumber>
       <OwnerName>postgres</OwnerName>
@@ -8259,8 +8259,8 @@ true posixrules
       <OwnerName>postgres</OwnerName>
     </sequence>
     <table id="513" parent="262" name="assento">
-      <ObjectId>41173</ObjectId>
-      <StateNumber>885</StateNumber>
+      <ObjectId>41232</ObjectId>
+      <StateNumber>997</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
@@ -8307,8 +8307,8 @@ true posixrules
       <OwnerName>postgres</OwnerName>
     </table>
     <table id="521" parent="262" name="onibus">
-      <ObjectId>41146</ObjectId>
-      <StateNumber>879</StateNumber>
+      <ObjectId>41222</ObjectId>
+      <StateNumber>991</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
@@ -8360,36 +8360,36 @@ true posixrules
       <DasType>varchar(20)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>885</StateNumber>
+      <StateNumber>997</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="530" parent="513" name="passageiroid">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>885</StateNumber>
+      <StateNumber>997</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <column id="531" parent="513" name="numeroassento">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StateNumber>885</StateNumber>
+      <StateNumber>997</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <foreign-key id="532" parent="513" name="assento_numeracaoonibus_fkey">
       <ColNames>numeracaoonibus</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>41178</ObjectId>
-      <StateNumber>885</StateNumber>
+      <ObjectId>41237</ObjectId>
+      <StateNumber>997</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>41146</RefTableId>
+      <RefTableId>41222</RefTableId>
     </foreign-key>
     <foreign-key id="533" parent="513" name="assento_passageiroid_fkey">
       <ColNames>passageiroid</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>41183</ObjectId>
-      <StateNumber>885</StateNumber>
+      <ObjectId>41242</ObjectId>
+      <StateNumber>997</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>41039</RefTableId>
     </foreign-key>
@@ -8397,9 +8397,9 @@ true posixrules
       <ColNames>numeracaoonibus
 passageiroid</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>41176</ObjectId>
+      <ObjectId>41235</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>885</StateNumber>
+      <StateNumber>997</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
       <CollationNames>default</CollationNames>
@@ -8408,10 +8408,10 @@ passageiroid</ColNames>
     </index>
     <key id="535" parent="513" name="assento_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>41177</ObjectId>
+      <ObjectId>41236</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>885</StateNumber>
-      <UnderlyingIndexId>41176</UnderlyingIndexId>
+      <StateNumber>997</StateNumber>
+      <UnderlyingIndexId>41235</UnderlyingIndexId>
     </key>
     <check id="536" parent="514" name="avaliacoes_nota_check">
       <ColNames>nota</ColNames>
@@ -8846,86 +8846,86 @@ motoristaid</ColNames>
       <DasType>varchar(20)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>879</StateNumber>
+      <StateNumber>991</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="593" parent="521" name="empresa">
       <DasType>varchar(100)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>879</StateNumber>
+      <StateNumber>991</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="594" parent="521" name="status">
       <DasType>boolean|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StateNumber>879</StateNumber>
+      <StateNumber>991</StateNumber>
       <TypeId>16</TypeId>
     </column>
     <column id="595" parent="521" name="classe">
       <DasType>varchar(50)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
-      <StateNumber>879</StateNumber>
+      <StateNumber>991</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="596" parent="521" name="wifi">
       <DasType>boolean|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
-      <StateNumber>879</StateNumber>
+      <StateNumber>991</StateNumber>
       <TypeId>16</TypeId>
     </column>
     <column id="597" parent="521" name="banheiros">
       <DasType>boolean|0s</DasType>
       <NotNull>1</NotNull>
       <Position>6</Position>
-      <StateNumber>879</StateNumber>
+      <StateNumber>991</StateNumber>
       <TypeId>16</TypeId>
     </column>
     <column id="598" parent="521" name="arcondicionado">
       <DasType>boolean|0s</DasType>
       <NotNull>1</NotNull>
       <Position>7</Position>
-      <StateNumber>879</StateNumber>
+      <StateNumber>991</StateNumber>
       <TypeId>16</TypeId>
     </column>
     <column id="599" parent="521" name="tomadas">
       <DasType>boolean|0s</DasType>
       <NotNull>1</NotNull>
       <Position>8</Position>
-      <StateNumber>879</StateNumber>
+      <StateNumber>991</StateNumber>
       <TypeId>16</TypeId>
     </column>
     <column id="600" parent="521" name="assentoreclinavel">
       <DasType>boolean|0s</DasType>
       <NotNull>1</NotNull>
       <Position>9</Position>
-      <StateNumber>879</StateNumber>
+      <StateNumber>991</StateNumber>
       <TypeId>16</TypeId>
     </column>
     <column id="601" parent="521" name="viagemid">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>10</Position>
-      <StateNumber>879</StateNumber>
+      <StateNumber>991</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <foreign-key id="602" parent="521" name="onibus_viagemid_fkey">
       <ColNames>viagemid</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>41151</ObjectId>
-      <StateNumber>879</StateNumber>
+      <ObjectId>41227</ObjectId>
+      <StateNumber>991</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>41078</RefTableId>
     </foreign-key>
     <index id="603" parent="521" name="onibus_pkey">
       <ColNames>numeracao</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>41149</ObjectId>
+      <ObjectId>41225</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>879</StateNumber>
+      <StateNumber>991</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
       <CollationNames>default</CollationNames>
@@ -8934,10 +8934,10 @@ motoristaid</ColNames>
     </index>
     <key id="604" parent="521" name="onibus_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>41150</ObjectId>
+      <ObjectId>41226</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>879</StateNumber>
-      <UnderlyingIndexId>41149</UnderlyingIndexId>
+      <StateNumber>991</StateNumber>
+      <UnderlyingIndexId>41225</UnderlyingIndexId>
     </key>
     <column id="605" parent="522" name="id">
       <DasType>integer|0s</DasType>
